@@ -18,8 +18,8 @@ public class Main {
     private static void readAndSplitFile(Map<String, Integer> words) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        FileReader fileReader = new FileReader(reader.readLine());
-        //FileReader fileReader = new FileReader("D:\\\Учеба Appline\\test.txt");
+        //FileReader fileReader = new FileReader(reader.readLine());
+        FileReader fileReader = new FileReader("D:\\Загрузки хром\\Учеба Appline\\7. Collections от 22.11.2020\\test.txt");
         reader.close();
 
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -27,11 +27,12 @@ public class Main {
         while (bufferedReader.ready()){
             String[] wordsInLine = bufferedReader.readLine().split("[^a-zа-яA-ZА-Я]");
             for (String s : wordsInLine) {
-                if (!s.equals("")) {
-                    if (!words.containsKey(s)) {
-                        words.put(s, 1);
+                String s2 = s.toLowerCase();
+                if (!s2.equals("")) {
+                    if (!words.containsKey(s2)) {
+                        words.put(s2, 1);
                     } else {
-                        words.put(s, words.get(s) + 1);
+                        words.put(s2, words.get(s2) + 1);
                     }
                 }
             }
